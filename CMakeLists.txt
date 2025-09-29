@@ -204,6 +204,18 @@ if(ENTT_INCLUDE_HEADERS)
     target_sources(EnTT INTERFACE ${HEADERS_BUILD_INTERFACE} ${HEADERS_INSTALL_INTERFACE})
 endif()
 
+add_library(EnTT-Library)
+
+target_link_libraries(EnTT-Library PUBLIC EnTT)
+target_sources(EnTT-Library
+        PUBLIC
+        FILE_SET CXX_MODULES
+        BASE_DIRS modules
+        FILES modules/entt/entt.cppm
+)
+
+add_library(EnTT::EnTT-Library ALIAS EnTT-Library)
+
 if(ENTT_INCLUDE_NATVIS)
     if(MSVC)
         set(ENTT_HAS_NATVIS TRUE CACHE BOOL "" FORCE)
