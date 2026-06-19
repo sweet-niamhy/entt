@@ -9,7 +9,9 @@ export namespace entt {
     using entt::entity;
     using entt::exclude;
     using entt::handle;
+    using entt::id_type;
     using entt::null;
     using entt::registry;
+    using entt::to_integral;
 
-} // namespace entt;
+} // namespace entt
